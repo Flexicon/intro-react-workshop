@@ -1,3 +1,9 @@
 export default function Ex1() {
-  return <div>Ex1</div>
+  return (
+    <>
+      <h1>Interactivity and State</h1>
+
+      <p>WIP...</p>
+    </>
+  )
 }

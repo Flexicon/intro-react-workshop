@@ -33,7 +33,7 @@ export default function Home() {
       <small>
         Although the value returned by a component can look like HTML, it is
         actually{' '}
-        <a href={jsxLink} target='_blank' rel='noreferrer'>
+        <a href={jsxLink} target="_blank" rel="noreferrer">
           JSX
         </a>
         .
@@ -65,10 +65,6 @@ export default function Home() {
       <p>👀</p>
 
       <pre>{helloPropsCmpUsageOutput}</pre>
-
-      <p className='text-right'>
-        See <code>pages/index.tsx</code> for the source.
-      </p>
     </>
   )
 }

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import SeePageSource from './SeePageSource'
 
 const LAST_PAGE = 2
 
@@ -14,9 +15,12 @@ export default function Navigator() {
   const nextUrl = `/${currentPage + 1}`
 
   return (
-    <div className='navigator'>
-      {hasPrev ? <Link href={prevUrl}>⬅️ Previous</Link> : <span />}
-      {hasNext ? <Link href={nextUrl}>Next ➡️</Link> : null}
-    </div>
+    <>
+      <SeePageSource page={currentPage ? currentPage.toString() : 'index'} />
+      <div className="navigator">
+        {hasPrev ? <Link href={prevUrl}>⬅️ Previous</Link> : <span />}
+        {hasNext ? <Link href={nextUrl}>Next ➡️</Link> : null}
+      </div>
+    </>
   )
 }

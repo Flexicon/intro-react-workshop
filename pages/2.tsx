@@ -1,3 +1,11 @@
 export default function Ex1() {
-  return <div>Ex2</div>
+  return (
+    <>
+      <h1>
+        Hooks - <code>useEffect</code>
+      </h1>
+
+      <p>WIP...</p>
+    </>
+  )
 }
