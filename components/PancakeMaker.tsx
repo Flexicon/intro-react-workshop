@@ -15,8 +15,6 @@ export default function PancakeMaker() {
     /* TODO: implement */
   }
 
-  console.log('PancakeMaker render()')
-
   return (
     <div className={styles.wrapper}>
       <strong>Pancake Maker 3000™️</strong>
