@@ -2,8 +2,6 @@ import { useState } from 'react'
 
 import styles from 'styles/PancakeMaker.module.css'
 
-const makePancakes = (amount: number) => [...Array(amount)].map(() => '🥞')
-
 export default function PancakeMaker() {
   const pancakesCount = 3
   const hasEnoughPancakes = pancakesCount >= 10
@@ -26,7 +24,7 @@ export default function PancakeMaker() {
 
       <div>
         {pancakesCount > 0 ? (
-          makePancakes(pancakesCount)
+          '🥞'.repeat(pancakesCount)
         ) : (
           <span>
             <em>...no more pancakes</em>
