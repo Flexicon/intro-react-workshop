@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import SeePageSource from './SeePageSource'
 
-const LAST_PAGE = 2
+const LAST_PAGE = 3
 
 export default function Navigator() {
   const { route } = useRouter()
