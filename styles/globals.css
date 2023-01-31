@@ -66,12 +66,12 @@ a:hover {
 
 a:after {
   content: ' ';
-  width: 110%;
+  width: calc(100% + 6px);
   height: 2px;
   background-color: cornflowerblue;
   position: absolute;
   bottom: -1px;
-  left: -5%;
+  left: -3px;
   z-index: -10;
   transition: height 0.1s ease-in-out;
 }
