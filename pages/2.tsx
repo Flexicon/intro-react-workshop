@@ -1,3 +1,5 @@
+import CodeSnippet from 'components/CodeSnippet'
+
 const ReadMore = () => (
   <p>
     Read more about hooks on the official docs, as there is plenty more to
@@ -58,7 +60,7 @@ export default function Ex2() {
         .
       </p>
 
-      <pre>
+      <CodeSnippet>
         {`
 function MyEffectComponent() {
   const [flip, setFlip] = useState(false);
@@ -76,10 +78,10 @@ function MyEffectComponent() {
     // Code here will run everytime the value of "flip" changes
   }, [flip]); // any value put here will decide whether the effect runs during a render
 
-  return <div />;
+  return <div>Some content</div>;
 }
 `.trim()}
-      </pre>
+      </CodeSnippet>
 
       <p>
         Play around with <code>components/ExampleUseEffect.tsx</code> for a
@@ -96,13 +98,13 @@ function MyEffectComponent() {
         <em>TODO...</em>
       </p>
 
-      <pre>
+      <CodeSnippet>
         {`
 function App() {
   // useCallback example here
   return foo;
 }`.trim()}
-      </pre>
+      </CodeSnippet>
 
       <hr />
 
@@ -114,13 +116,13 @@ function App() {
         <em>TODO...</em>
       </p>
 
-      <pre>
+      <CodeSnippet>
         {`
 function App() {
   // useState example here
   return foo;
 }`.trim()}
-      </pre>
+      </CodeSnippet>
 
       <ReadMore />
     </>

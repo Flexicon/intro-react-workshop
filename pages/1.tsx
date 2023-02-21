@@ -1,3 +1,4 @@
+import CodeSnippet from 'components/CodeSnippet'
 import PancakeMaker from 'components/PancakeMaker'
 
 const counterCmpTxt = `function Counter() {
@@ -37,18 +38,18 @@ export default function Ex1() {
         implemented as follows.
       </p>
 
-      <pre>{counterCmpTxt}</pre>
+      <CodeSnippet>{counterCmpTxt}</CodeSnippet>
 
       <p>Which would initially render the following.</p>
 
-      <pre>{counterCmpOutput}</pre>
+      <CodeSnippet>{counterCmpOutput}</CodeSnippet>
 
       <p>
         But after clicking the increment button, the component would re-render
         with the updated counter state.
       </p>
 
-      <pre>{counterCmpOutputAfterClick}</pre>
+      <CodeSnippet>{counterCmpOutputAfterClick}</CodeSnippet>
 
       <hr />
 

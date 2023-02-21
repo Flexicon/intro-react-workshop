@@ -1,3 +1,5 @@
+import CodeSnippet from "components/CodeSnippet"
+
 const helloWorldCmpTxt = `function Hello() {
   return <p>Hello World</p>
 }`
@@ -39,32 +41,32 @@ export default function Home() {
         .
       </small>
 
-      <pre>{helloWorldCmpTxt}</pre>
+      <CodeSnippet>{helloWorldCmpTxt}</CodeSnippet>
 
       <p>Simple usage in another component.</p>
 
-      <pre>{helloWorldCmpUsage}</pre>
+      <CodeSnippet>{helloWorldCmpUsage}</CodeSnippet>
 
       <p>The above would output the following HTML.</p>
 
-      <pre>{helloWorldCmpUsageOutput}</pre>
+      <CodeSnippet>{helloWorldCmpUsageOutput}</CodeSnippet>
 
       <hr />
 
       <p>🎭 Things get more interesting when Props are involved.</p>
 
-      <pre>{helloPropsCmpTxt}</pre>
+      <CodeSnippet>{helloPropsCmpTxt}</CodeSnippet>
 
       <p>
         For usage, since components are simply functions that return JSX, arrow
         functions can be used as well.
       </p>
 
-      <pre>{helloPropsCmpUsage}</pre>
+      <CodeSnippet>{helloPropsCmpUsage}</CodeSnippet>
 
       <p>👀</p>
 
-      <pre>{helloPropsCmpUsageOutput}</pre>
+      <CodeSnippet>{helloPropsCmpUsageOutput}</CodeSnippet>
     </>
   )
 }
