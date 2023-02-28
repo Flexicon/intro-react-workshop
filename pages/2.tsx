@@ -1,4 +1,4 @@
-import CodeSnippet from 'components/CodeSnippet'
+import CodeSnippet from 'components/CodeSnippetLoader'
 
 const ReadMore = () => (
   <p>

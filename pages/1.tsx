@@ -1,4 +1,4 @@
-import CodeSnippet from 'components/CodeSnippet'
+import CodeSnippet from 'components/CodeSnippetLoader'
 import PancakeMaker from 'components/PancakeMaker'
 
 const counterCmpTxt = `function Counter() {
