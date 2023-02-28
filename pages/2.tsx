@@ -22,11 +22,53 @@ export default function Ex2() {
       </p>
 
       <p>
-        Beside the <code>useState</code> hook, here are some of the most
-        commonly used built-in hooks:
+        Hooks at a glance, are nothing more than functions which{' '}
+        <em>hook in</em> to React&apos;s change detection and render loop.
       </p>
 
-      <ReadMore />
+      <p>
+        Beside the <code>useState</code> hook, here are two of the most commonly
+        used built-in hooks.
+      </p>
+
+      <hr />
+
+      <h3>
+        <code>useCallback</code>
+      </h3>
+
+      <p>
+        For all those times where handling an asynchronous event, whether it be
+        a button click or form submission and everything in between -{' '}
+        <code>useCallback</code> is usually the way to go.
+      </p>
+
+      <CodeSnippet>
+        {`
+function App() {
+  // This is regular callback function and can used safely for direct html events
+  // and in general internally in the component
+  const onClick = () => {};
+
+  // When needing to pass your callback to a child component you usually want to use the
+  // useCallback hook in order to avoid needless re-renders
+  const onEvent = useCallback(() => {
+    // Code here will run when the onEvent callback is invoked
+  }, []);
+
+  return (
+    <div>
+      <button onClick={onClick}>Click me</button>
+      <SomeComponent onEvent={onEvent} />
+    </div>
+  );
+}`.trim()}
+      </CodeSnippet>
+
+      <p>
+        See <code>components/ExampleUseCallback.tsx</code> for a working
+        example.
+      </p>
 
       <hr />
 
@@ -66,7 +108,7 @@ function MyEffectComponent() {
   const [flip, setFlip] = useState(false);
 
   useEffect(() => {
-    // Code here will run after *every* render
+    // Code here will run on *every* render
   });
 
   useEffect(() => {
@@ -84,45 +126,10 @@ function MyEffectComponent() {
       </CodeSnippet>
 
       <p>
-        Play around with <code>components/ExampleUseEffect.tsx</code> for a
-        working example.
+        See <code>components/ExampleUseEffect.tsx</code> for a working example.
       </p>
 
       <hr />
-
-      <h3>
-        <code>useCallback</code>
-      </h3>
-
-      <p>
-        <em>TODO...</em>
-      </p>
-
-      <CodeSnippet>
-        {`
-function App() {
-  // useCallback example here
-  return foo;
-}`.trim()}
-      </CodeSnippet>
-
-      <hr />
-
-      <h3>
-        <code>useReducer</code>
-      </h3>
-
-      <p>
-        <em>TODO...</em>
-      </p>
-
-      <CodeSnippet>
-        {`
-function App() {
-  // useState example here
-  return foo;
-}`.trim()}
-      </CodeSnippet>
 
       <ReadMore />
     </>
