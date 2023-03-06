@@ -22,7 +22,7 @@ export default function PancakeMaker() {
         <button onClick={eat}>Eat Pancake</button>
       </div>
 
-      <div>
+      <div data-testid="pancakes">
         {pancakesCount > 0 ? (
           '🥞'.repeat(pancakesCount)
         ) : (
