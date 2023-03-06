@@ -23,6 +23,10 @@ code {
   padding: 1px 3px;
 }
 
+pre code {
+  padding: 0;
+}
+
 pre {
   font-size: 0.9rem;
   line-height: 1.15rem;
