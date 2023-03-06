@@ -1,3 +1,7 @@
+// Make the tests inside PancakeMaker.test.tsx pass.
+// You should only need to alter 3 lines in the component.
+// Run tests via `npm test`.
+
 import { useState } from 'react'
 
 import styles from 'styles/PancakeMaker.module.css'
