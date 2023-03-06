@@ -30,4 +30,15 @@ test('PancakeMaker', async () => {
 
   fireEvent.click(makeBtn)
   expect(pancakes.textContent).toBe(pancake.repeat(1))
+
+  for (let i = 1; i < 10; i++) {
+    fireEvent.click(makeBtn)
+  }
+  expect(pancakes.textContent).toBe(pancake.repeat(10))
+  expect(
+    screen.queryByText("✋ Woah there, that's plenty pancakes there bud.")
+  ).not.toBeNull()
+
+  fireEvent.click(makeBtn)
+  expect(pancakes.textContent).toBe(pancake.repeat(10))
 })
