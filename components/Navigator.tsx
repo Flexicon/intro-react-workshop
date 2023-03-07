@@ -6,20 +6,22 @@ const LAST_PAGE = 3
 
 export default function Navigator() {
   const { route } = useRouter()
+  const path = route.slice(1)
 
-  const currentPage = parseInt(route.slice(1)) || 0
-  const hasPrev = currentPage !== 0
+  const currentPage = parseInt(path) || 0
+  const isEnd = path === 'end'
+  const hasPrev = currentPage !== 0 || isEnd
   const hasNext = currentPage !== LAST_PAGE
 
-  const prevUrl = `/${currentPage - 1 || ''}`
-  const nextUrl = `/${currentPage + 1}`
+  const prevUrl = !isEnd ? `/${currentPage - 1 || ''}` : `/${LAST_PAGE}`
+  const nextUrl = hasNext ? `/${currentPage + 1}` : `/end`
 
   return (
     <>
       <SeePageSource page={currentPage ? currentPage.toString() : 'index'} />
       <div className="navigator">
         {hasPrev ? <Link href={prevUrl}>⬅️ Previous</Link> : <span />}
-        {hasNext ? <Link href={nextUrl}>Next ➡️</Link> : null}
+        {!isEnd ? <Link href={nextUrl}>Next ➡️</Link> : null}
       </div>
     </>
   )
