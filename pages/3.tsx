@@ -83,7 +83,7 @@ class Blackjack implements Game {
 
 class Poker implements Game {
   name = 'Poker'
-  hand: number = 0
+  constructor(public hand: number) {}
 }
 
 class Roulette implements Game {
