@@ -15,7 +15,6 @@ export default function End() {
       <p>Now go put them new found skills to good use.</p>
 
       <Image
-        style={{ margin: '0 auto' }}
         width={leoSize}
         height={leoSize}
         src="https://media.tenor.com/IErQHBRt6GIAAAAC/leonardo-dicaprio.gif"
