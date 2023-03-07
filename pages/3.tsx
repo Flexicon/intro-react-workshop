@@ -106,6 +106,28 @@ const neo: Gambler<Poker> = morpheus
 const trinity: Gambler<Roulette> = morpheus
         `.trim()}
       </CodeSnippet>
+
+      <h3>👖 Type narrowing</h3>
+
+      <CodeSnippet>
+        {`
+// A typical implementation of a string padding function - using narrowing for it's arguments
+function padLeft(padding: number | string, input: string) {
+  if (typeof padding === "number") {
+    return " ".repeat(padding) + input;
+  }
+  return padding + input;
+}
+        `.trim()}
+      </CodeSnippet>
+
+      <p>
+        This is a fun yet finicky topic, so let&apos;s cover it further live in
+        workshop.
+      </p>
+      <p>
+        Open up <code>components/ExampleTypeNarrowing.tsx</code>.
+      </p>
     </>
   )
 }
