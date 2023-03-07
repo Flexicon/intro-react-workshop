@@ -1,13 +1,19 @@
 import CodeSnippet from 'components/CodeSnippetLoader'
 
-const ReadMore = () => (
-  <p>
-    Read more about hooks on the official docs, as there is plenty more to
-    discover and be confused about than briefly touched on here.{' '}
-    <a href="https://beta.reactjs.org/reference/react">Beta</a> /{' '}
-    <a href="https://reactjs.org/docs/hooks-reference.html">Stable</a>.
-  </p>
-)
+const externalLinkProps = {
+  target: '_blank',
+  rel: 'noreferrer',
+}
+
+const betaDocsProps = {
+  ...externalLinkProps,
+  href: 'https://beta.reactjs.org/reference/react',
+}
+
+const stableDocsProps = {
+  ...externalLinkProps,
+  href: 'https://reactjs.org/docs/hooks-reference.html',
+}
 
 export default function Ex2() {
   return (
@@ -131,7 +137,11 @@ function MyEffectComponent() {
 
       <hr />
 
-      <ReadMore />
+      <p>
+        Read more about hooks on the official docs, as there is plenty more to
+        discover and be confused about than briefly touched on here.{' '}
+        <a {...betaDocsProps}>Beta</a> / <a {...stableDocsProps}>Stable</a>.
+      </p>
     </>
   )
 }

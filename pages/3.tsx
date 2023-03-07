@@ -1,5 +1,11 @@
 import CodeSnippet from 'components/CodeSnippetLoader'
 
+const narrowingDocsProps = {
+  target: '_blank',
+  rel: 'noreferrer',
+  href: 'https://www.typescriptlang.org/docs/handbook/2/narrowing.html',
+}
+
 export default function Ex3() {
   return (
     <>
@@ -122,8 +128,8 @@ function padLeft(padding: number | string, input: string) {
       </CodeSnippet>
 
       <p>
-        This is a fun yet finicky topic, so let&apos;s cover it further live in
-        workshop.
+        This is a <a {...narrowingDocsProps}>fun topic</a>, so let&apos;s cover
+        it further live in workshop.
       </p>
       <p>
         Open up <code>components/ExampleTypeNarrowing.tsx</code>.
