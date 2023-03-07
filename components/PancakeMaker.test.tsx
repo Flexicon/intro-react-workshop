@@ -3,6 +3,7 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import PancakeMaker from './PancakeMaker'
 
 const pancake = '🥞'
+const limitText = "✋ Woah there, that's plenty pancakes there bud."
 
 describe('PancakeMaker', () => {
   let makeBtn: HTMLElement, eatBtn: HTMLElement, pancakes: HTMLElement
@@ -54,11 +55,13 @@ describe('PancakeMaker', () => {
 
   test('should only make pancakes up to limit', async () => {
     expect(pancakes.textContent).toBe(pancake.repeat(3))
+    expect(screen.queryByText(limitText)).toBeNull()
 
     for (let i = 0; i < 7; i++) {
       fireEvent.click(makeBtn)
     }
     expect(pancakes.textContent).toBe(pancake.repeat(10))
+    expect(screen.queryByText(limitText)).not.toBeNull()
 
     fireEvent.click(makeBtn)
     expect(pancakes.textContent).toBe(pancake.repeat(10))
