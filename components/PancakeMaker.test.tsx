@@ -19,56 +19,64 @@ describe('PancakeMaker', () => {
     cleanup()
   })
 
-  test('should make pancakes', async () => {
+  test('should make pancakes', () => {
     expect(pancakes.textContent).toBe(pancake.repeat(3))
 
-    fireEvent.click(makeBtn)
+    clickMake()
     expect(pancakes.textContent).toBe(pancake.repeat(4))
 
-    fireEvent.click(makeBtn)
-    fireEvent.click(makeBtn)
+    clickMake(2)
     expect(pancakes.textContent).toBe(pancake.repeat(6))
   })
 
-  test('should eat pancakes', async () => {
+  test('should eat pancakes', () => {
     expect(pancakes.textContent).toBe(pancake.repeat(3))
 
-    fireEvent.click(eatBtn)
+    clickEat()
     expect(pancakes.textContent).toBe(pancake.repeat(2))
 
-    fireEvent.click(eatBtn)
-    fireEvent.click(eatBtn)
+    clickEat(2)
     expect(pancakes.textContent).toContain('...no more pancakes')
   })
 
-  test('should make pancakes after eating all of them', async () => {
+  test('should make pancakes after eating all of them', () => {
     expect(pancakes.textContent).toBe(pancake.repeat(3))
 
-    for (let i = 0; i < 10; i++) {
-      fireEvent.click(eatBtn)
-    }
+    clickEat(10)
     expect(pancakes.textContent).toContain('...no more pancakes')
 
-    fireEvent.click(makeBtn)
+    clickMake()
     expect(pancakes.textContent).toBe(pancake)
   })
 
-  test('should only make pancakes up to limit', async () => {
+  test('should only make pancakes up to limit', () => {
     expect(pancakes.textContent).toBe(pancake.repeat(3))
     expect(screen.queryByText(limitText)).toBeNull()
 
-    for (let i = 0; i < 7; i++) {
-      fireEvent.click(makeBtn)
-    }
+    clickMake(6)
+    expect(pancakes.textContent).toBe(pancake.repeat(9))
+    expect(screen.queryByText(limitText)).toBeNull()
+
+    clickMake()
     expect(pancakes.textContent).toBe(pancake.repeat(10))
     expect(screen.queryByText(limitText)).not.toBeNull()
 
-    fireEvent.click(makeBtn)
+    clickMake()
     expect(pancakes.textContent).toBe(pancake.repeat(10))
 
-    for (let i = 0; i < 20; i++) {
-      fireEvent.click(makeBtn)
-    }
+    clickMake(20)
     expect(pancakes.textContent).toBe(pancake.repeat(10))
   })
+
+  function clickMake(times: number = 1) {
+    for (let i = 0; i < Math.max(1, times); i++) {
+      fireEvent.click(makeBtn)
+    }
+  }
+
+  function clickEat(times: number = 1) {
+    for (let i = 0; i < Math.max(1, times); i++) {
+      fireEvent.click(eatBtn)
+    }
+  }
 })
