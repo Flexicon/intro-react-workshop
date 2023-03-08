@@ -1,13 +1,22 @@
-// TODO: Cover live in workshop 🎤 there's no type narrowing here yet
+interface SuccessProps {
+  value: { name: string; age: number }
+  message?: ''
+  hasError?: false
+}
+
+interface FailureProps {
+  value?: null
+  message: string
+  hasError: true
+}
+
+type Props = SuccessProps | FailureProps
+
 export default function ExampleTypeNarrowing({
   value,
   message,
   hasError,
-}: {
-  value?: { name: string; age: number }
-  message?: string
-  hasError?: boolean
-}) {
+}: Props) {
   if (hasError) {
     return <strong>Error: {message}</strong>
   }
@@ -20,11 +29,11 @@ export default function ExampleTypeNarrowing({
         <dt>
           <strong>Name</strong>
         </dt>
-        <dd>{value?.name}</dd>
+        <dd>{value.name}</dd>
         <dt>
           <strong>Age</strong>
         </dt>
-        <dd>{value?.age}</dd>
+        <dd>{value.age}</dd>
       </dl>
     </div>
   )

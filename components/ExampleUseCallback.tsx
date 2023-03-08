@@ -2,11 +2,11 @@ import { memo, useCallback, useState } from 'react'
 
 import styles from 'styles/ExampleUseCallback.module.css'
 
-const SomeComponent = ({}: { onEvent: () => void }) => {
+const SomeComponent = memo(function SomeComponent({}: { onEvent: () => void }) {
   console.log('<SomeComponent /> rendering')
 
   return <strong className={styles.someComponent}>This is SomeComponent</strong>
-}
+})
 
 export default function ExampleUseCallback() {
   const [count, setCount] = useState(42)

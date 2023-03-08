@@ -6,15 +6,17 @@ import { useState } from 'react'
 
 import styles from 'styles/PancakeMaker.module.css'
 
-export default function PancakeMaker() {
-  const pancakesCount = 3
+export const Pancake = '🥞'
+
+export function PancakeMaker() {
+  const [pancakesCount, setPancakesCount] = useState(3)
   const hasEnoughPancakes = pancakesCount >= 10
 
   const make = () => {
-    /* TODO: implement */
+    setPancakesCount(state => Math.min(10, state + 1))
   }
   const eat = () => {
-    /* TODO: implement */
+    setPancakesCount(state => Math.max(0, state - 1))
   }
 
   return (
@@ -43,3 +45,5 @@ export default function PancakeMaker() {
     </div>
   )
 }
+
+export default PancakeMaker
